@@ -6,8 +6,10 @@ import "./Home.css";
 import { API } from "aws-amplify";
 import { BsPencilSquare } from "react-icons/bs";
 import { LinkContainer } from "react-router-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const nav = useNavigate()
   const [notes, setNotes] = useState([]);
   const { isAuthenticated } = useAppContext();
   const [isLoading, setIsLoading] = useState(true);
@@ -60,11 +62,7 @@ export default function Home() {
   }
 
   function renderLander() {
-    return (
-      <div className="lander">
-        <h1>Scratch</h1>
-        <p className="text-muted">A simple note taking app</p>
-      </div>
+    return ( nav("/login")
     );
   }
 
